@@ -1,5 +1,9 @@
 <h1 align="center">🎮 Jogo de Adivinhação Temático ✨ </h1>
 
+<p align="center">
+  <img src="./assets/logo.png" alt="Guessing Number Game">
+</p>
+
 Bem-vindo ao Jogo de Adivinhação Temático! Um projeto web interativo e divertido onde você testa sua sorte para adivinhar um número secreto. A experiência é enriquecida com uma seleção de temas visuais dinâmicos inspirados no anime "Frieren", que alteram a interface antes mesmo de começar a jogar!
 
 ## Índice
