@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing Game</title>
+
+    <link rel="stylesheet" href="../css/login.css">
+
+    <link rel="shortcut icon" href="./assets/icone.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Edu+SA+Hand:wght@400..700&family=Jersey+10&family=Pixelify+Sans:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <style>
+        :root {
+            --cor-titulos: #8A95E8;
+            --cor-texto-input: black;
+            --cor-fundo-input: #E9ECEF;
+            --cor-fundo-formulario: #E0EBEE;
+            --cor-ancora: #3E87B7;
+            --cor-preta: black;
+            --fonte: "Roboto", sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--fonte);
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('./assets/telaFundoInicialSemEscrita.gif');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: blur(8px);
+            z-index: -1;
+            transform: scale(1.05);
+        }
+
+        a {
+            color: var(--cor-ancora);
+        }
+
+        main {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        #imagemFormulario {
+            height: 75%;
+            width: 60%;
+        }
+
+        #imagemFormulario img {
+            width: 100%;
+            height: 100%;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            border: 1px solid var(--cor-preta);
+            object-fit: cover;
+        }
+
+        #formulario {
+            border: 1px solid var(--cor-preta);
+            background-color: var(--cor-fundo-formulario);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 75%;
+            width: 30%;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            gap: 1.5em;
+            padding: 2em 0;
+        }
+
+        .logo {
+            max-width: 500px;
+        }
+
+        .logo img {
+            width: 100%;
+            height: auto;
+        }
+
+        #inputNome {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #formulario label {
+            font-family: var(--fonte);
+            color: var(--cor-titulos);
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 8px;
+            text-align: left;
+        }
+
+        #formulario input[type="text"] {
+            background-color: var(--cor-fundo-input);
+            width: 100%;
+            height: 50px;
+            border-radius: 20px;
+            padding: 5px 20px;
+            border: none;
+            font-size: 16px;
+            color: var(--cor-texto-input);
+            border: 1px solid var(--cor-titulos);
+        }
+
+        #formulario input::placeholder {
+            color: var(--cor-texto-input);
+            opacity: 0.7;
+        }
+
+        #inputSexo {
+            width: 80%;
+            text-align: center;
+        }
+
+        #inputSexo>label {
+            font-weight: bold;
+            color: var(--cor-titulos);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .opcoes-sexo {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        #comecar {
+            display: flex;
+            justify-content: center;
+        }
+
+        .botao-aventura {
+            display: inline-block;
+            background-color: var(--cor-titulos);
+            color: white;
+            font-family: var(--fonte);
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            border: none;
+        }
+
+        .botao-aventura:hover {
+            transform: scale(1.05);
+            background-color: #3E87B7;
+        }
+
+        .icones-sociais {
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            gap: 1em;
+            font-size: 25px;
+        }
+
+        .icones-sociais a {
+            color: rgb(8, 0, 0);
+            transition: color 0.3s, transform 0.3s;
+            transform: scale(1.2);
+        }
+
+        .icones-sociais a:hover {
+            transform: scale(1.3);
+        }
+
+        .icones-sociais .linkedin:hover {
+            color: #1877F2;
+        }
+
+        #botao-musica {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: 1px solid white;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            z-index: 1000;
+            transition: transform 0.2s;
+        }
+
+        #botao-musica:hover {
+            transform: scale(1.1);
+        }
+
+        #botao-musica img {
+            width: 25px;
+            height: 25px;
+        }
+    </style>
+
+    <main>
+        <div id="container">
+            <div id="imagemFormulario">
+                <img src="./assets/telaFundoInicial.gif" alt="Fundo do formulário">
+            </div>
+
+            <form id="formulario" action="pages/escolhaTema.html">
+
+                <div class="logo">
+                    <img src="./assets/logo.png" alt="Logo do Guessing Game">
+                </div>
+
+                <div id="inputNome">
+                    <input type="text" name="nome" id="nome" placeholder="Qual seu nome, aventureiro(a)?" maxlength="30"
+                        required>
+                </div>
+
+                <div id="inputSexo">
+                    <div class="opcoes-sexo">
+                        <input type="radio" id="sexoM" name="sexo" value="M" required>
+                        <label for="sexoM">Masculino</label>
+                        <input type="radio" id="sexoF" name="sexo" value="F" required>
+                        <label for="sexoF">Feminino</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="botao-aventura">Começar Aventura</button><br>
+
+                <h4>Criado por Lorena Rinaldo:</h4>
+                <section class="icones-sociais">
+                    <a href="https://github.com/Lorena-Rinaldo" target="_blank" class="github"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/lorena-rinaldo01" target="_blank" class="linkedin"><i
+                            class="fab fa-linkedin-in"></i></a>
+                </section>
+            </form>
+        </div>
+    </main>
+
+    <audio id="musica-fundo" src="./assets/trilhaSonora.mp3" loop muted></audio>
+
+    <button id="botao-musica">
+        <img id="icone-musica" src="" alt="Ícone de música">
+    </button>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

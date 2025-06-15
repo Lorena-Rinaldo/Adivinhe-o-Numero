@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Adivinhação</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../assets/icone.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="navegacao">
+        <a onclick="history.back()" title="Voltar">
+            <i class="fa-solid fa-arrow-left"></i>
+        </a>
+    </div>
+
+    <div class="container" id="container">
+        <div class="escolhaTema" id="escolhaTema">
+            <h1 id="textoEscolhaTema">Escolha o Tema</h1>
+        </div>
+        <div class="temas">
+            <div class="personagem" id="personagem-frieren">
+                <img onclick="irParaJogo('frieren')" src="../assets/frieren.png" alt="Frieren">
+            </div>
+            <div class="personagem" id="personagem-stark">
+                <img onclick="irParaJogo('stark')" src="../assets/stark.png" alt="Stark">
+            </div>
+            <div class="personagem" id="personagem-fern">
+                <img onclick="irParaJogo('fern')" src="../assets/fern.png" alt="Fern">
+            </div>
+        </div>
+    </div>
+
+    <audio id="musica-fundo" src="../assets/trilhaSonora.mp3" loop muted></audio>
+
+    <button id="botao-musica">
+        <img id="icone-musica" src="" alt="Ícone de música">
+    </button>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

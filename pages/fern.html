@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fern - Jogo de Adivinhação</title>
+    <link rel="shortcut icon" href="../assets/fern.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" href="../css/popUp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="fundo-fern">
+
+    <div class="navegacao">
+        <a onclick="history.back()" title="Voltar">
+            <i class="fa-solid fa-arrow-left"></i>
+        </a>
+    </div>
+
+    <div class="formulario" id="formulario">
+        <img class="logo-jogo" src="../assets/logo.png" alt="Logo do Jogo">
+        <i class="fa-solid fa-circle-question icone-ajuda game-icone-ajuda" onclick="abrirAjuda()"></i>
+
+        <div class="dificuldade-botoes">
+            <button type="button" onclick="mudarDificuldade('facil', event)" data-dificuldade="facil">Fácil</button>
+            <button type="button" onclick="mudarDificuldade('medio', event)" data-dificuldade="medio">Médio</button>
+            <button type="button" onclick="mudarDificuldade('dificil', event)"
+                data-dificuldade="dificil">Difícil</button>
+        </div>
+
+        <form id="tentativaForm">
+            <div id="textoPalpite">
+                <label for="palpiteNumerico">Qual é o número secreto?</label>
+                <input type="number" id="palpiteNumerico">
+            </div>
+            <button type="button" id="btnVerificar" onclick="checarResultado()">Verificar</button>
+        </form>
+
+        <p id="result"></p>
+        <p id="tentativasRestantes"></p>
+    </div>
+
+    <div id="personagemNoJogo" class="personagem-fern-jogo"></div>
+    <div id="balaoMensagem" class="balao-mensagem">
+        <p id="textoBalao"></p>
+        <div id="buttons">
+            <button type="button" id="btnReiniciar">Reiniciar Jogo</button>
+            <button type="button" id="btnVoltarMenu" onclick="window.location.href='./escolhaTema.html'">Voltar ao Menu
+                Principal</button>
+        </div>
+    </div>
+
+    <audio id="somPulo" src="../assets/pulinho.mp3" preload="auto"></audio>
+
+    <audio id="musica-fundo" src="../assets/trilhaSonora.mp3" loop muted></audio>
+    <button id="botao-musica">
+        <img id="icone-musica" src="" alt="Ícone de música">
+    </button>
+
+    <div id="container-ajuda"></div>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
